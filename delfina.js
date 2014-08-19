@@ -1,8 +1,9 @@
 var fs = require('fs');
 var moment = require('moment');
 
+
 console.log("RUNNING!!!\n\n")
-console.log ("Comienzo");
+console.log ("Comienzo\n\n");
 
 //fs.readFile("./eventos.json", function(error, data) {
 	//console.log("Eventos: " + data);
@@ -10,16 +11,21 @@ console.log ("Comienzo");
 
 
 var contenido = fs.readFileSync("eventos.json");
-var evento = JSON.parse(contenido);
+var lista = JSON.parse(contenido);
 
-console.log(evento);
+console.log(lista.acontecimientos[0].fecha);
 
-console.log("Funciona");
+console.log("\n\nFunciona\n\n");
 
 
-//var hoy = moment().startOf('days');
-//var eventoFecha = moment([2014, 09, 02]);
 
-//console.log(eventoFecha.diff(hoy, 'days'));
+// Lo que esta a continuacion funciona, solo resta ver como formateo
+// las fechas para que me queden los dias de diferencia correctos.
+moment().format("L");
+
+var hoy = moment().startOf('days');
+var eventoFecha = moment([lista.acontecimientos[2].fecha]);
+
+console.log(eventoFecha.diff(hoy, 'days'));
 
 
